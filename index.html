@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Agency | We Build & Grow Brands</title>
+    <!-- Google Fonts: Inter for a modern, clean look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #fffafb;
+            --card-bg: #ffffff;
+            --primary-pink: #fce4ec;
+            --accent-lavender: #f3e5f5;
+            --soft-beige: #fff9f0;
+            --text-main: #4a4a4a;
+            --text-muted: #7d7d7d;
+            --border-radius: 20px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- Layout --- */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section {
+            padding: 60px 0;
+        }
+
+        /* --- Header --- */
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 250, 251, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 600;
+            font-size: 1.2rem;
+            letter-spacing: -0.5px;
+            color: var(--text-main);
+            text-decoration: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-size: 0.9rem;
+            margin-left: 20px;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: #d81b60;
+        }
+
+        /* --- Portfolio Section (Hero) --- */
+        #portfolio {
+            padding-top: 40px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Mobile: 2 columns */
+            gap: 15px;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+
+        .project-image {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            display: block;
+            background: var(--accent-lavender);
+        }
+
+        .project-info {
+            padding: 12px;
+        }
+
+        .project-tag {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: var(--primary-pink);
+            padding: 2px 8px;
+            border-radius: 50px;
+            display: inline-block;
+            margin-bottom: 5px;
+            color: #ad1457;
+        }
+
+        .project-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* --- Intro Section --- */
+        #intro {
+            text-align: center;
+            background-color: var(--soft-beige);
+            margin: 40px 0;
+            border-radius: 40px;
+            padding: 80px 20px;
+        }
+
+        #intro h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        #intro p {
+            max-width: 600px;
+            margin: 0 auto;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* --- Services Section --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .service-item {
+            padding: 30px;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(0,0,0,0.03);
+            transition: var(--transition);
+        }
+
+        .service-icon {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .service-item h3 {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .service-item p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* --- Contact Section --- */
+        #contact {
+            background-color: var(--accent-lavender);
+            border-radius: 40px 40px 0 0;
+            margin-top: 40px;
+        }
+
+        .contact-flex {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .contact-info h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .phone-numbers {
+            margin-bottom: 25px;
+        }
+
+        .phone-link {
+            display: block;
+            font-size: 1.2rem;
+            color: var(--text-main);
+            text-decoration: none;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            background: #25D366;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            gap: 10px;
+            transition: var(--transition);
+        }
+
+        .whatsapp-btn:hover {
+            opacity: 0.9;
+            transform: scale(1.02);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid #eee;
+            font-family: inherit;
+            outline: none;
+        }
+
+        input:focus, textarea:focus {
+            border-color: var(--primary-pink);
+        }
+
+        .submit-btn {
+            background: var(--text-main);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .submit-btn:hover {
+            background: #000;
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            background: var(--accent-lavender);
+        }
+
+        /* --- Desktop Responsive --- */
+        @media (min-width: 768px) {
+            .portfolio-grid {
+                grid-template-columns: repeat(4, 1fr); /* Desktop: 4 columns */
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .contact-flex {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+
+            .contact-info, form {
+                flex: 1;
+            }
+
+            #intro h2 {
+                font-size: 3.5rem;
+            }
+        }
+
+        /* Custom SVG Icons for Services (Minimal) */
+        .icon-svg {
+            width: 32px;
+            height: 32px;
+            fill: #ad1457;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">DIGITAL AGENCY.</a>
+            <div class="nav-links">
+                <a href="#portfolio">Work</a>
+                <a href="#services">Services</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- PORTFOLIO FIRST -->
+    <section id="portfolio">
+        <div class="container">
+            <h2 class="section-title">Selected Work</h2>
+            <div class="portfolio-grid">
+                <!-- Project 1 -->
+                <div class="project-card" onclick="window.open('https://github.com', '_blank')">
+                    <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=500&q=80" alt="Work 1" class="project-image" onerror="this.src='https://via.placeholder.com/500x500?text=Work+1'">
+                    <div class="project-info">
+                        <span class="project-tag">Branding</span>
+                        <h3 class="project-title">Luna Wellness</h3>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="project-card" onclick="window.open('https://github.com', '_blank')">
+                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=500&q=80" alt="Work 2" class="project-image" onerror="this.src='https://via.placeholder.com/500x500?text=Work+2'">
+                    <div class="project-info">
+                        <span class="project-tag">Social Media</span>
+                        <h3 class="project-title">Fashion Forward</h3>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                <div class="project-card" onclick="window.open('https://github.com', '_blank')">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=500&q=80" alt="Work 3" class="project-image" onerror="this.src='https://via.placeholder.com/500x500?text=Work+3'">
+                    <div class="project-info">
+                        <span class="project-tag">Paid Ads</span>
+                        <h3 class="project-title">Growth Campaign</h3>
+                    </div>
+                </div>
+                <!-- Project 4 -->
+                <div class="project-card" onclick="window.open('https://github.com', '_blank')">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=500&q=80" alt="Work 4" class="project-image" onerror="this.src='https://via.placeholder.com/500x500?text=Work+4'">
+                    <div class="project-info">
+                        <span class="project-tag">Website</span>
+                        <h3 class="project-title">Bloom E-comm</h3>
+                    </div>
+                </div>
+                <!-- Project 5 -->
+                <div class="project-card" onclick="window.open('https://github.com', '_blank')">
+                    <img src="https://images.unsplash.com/photo-1493119508027-2b584f234d6c?auto=format&fit=crop&w=500&q=80" alt="Work 5" class="project-image" onerror="this.src='https://via.placeholder.com/500x500?text=Work+5'">
+                    <div class="project-info">
+                        <span class="project-tag">Ads</span>
+                        <h3 class="project-title">Meta Strategy</h3>
+                    </div>
+                </div>
+                <!-- Project 6 -->
+                <div class="project-card" onclick="window.open('https://github.com', '_blank')">
+                    <img src="https://images.unsplash.com/photo-1542744094-3a31f272c490?auto=format&fit=crop&w=500&q=80" alt="Work 6" class="project-image" onerror="this.src='https://via.placeholder.com/500x500?text=Work+6'">
+                    <div class="project-info">
+                        <span class="project-tag">Video</span>
+                        <h3 class="project-title">Urban Stories</h3>
+                    </div>
+                </div>
+                <!-- Project 7 -->
+                <div class="project-card" onclick="window.open('https://github.com', '_blank')">
+                    <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=500&q=80" alt="Work 7" class="project-image" onerror="this.src='https://via.placeholder.com/500x500?text=Work+7'">
+                    <div class="project-info">
+                        <span class="project-tag">Branding</span>
+                        <h3 class="project-title">Eco Identity</h3>
+                    </div>
+                </div>
+                <!-- Project 8 -->
+                <div class="project-card" onclick="window.open('https://github.com', '_blank')">
+                    <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=500&q=80" alt="Work 8" class="project-image" onerror="this.src='https://via.placeholder.com/500x500?text=Work+8'">
+                    <div class="project-info">
+                        <span class="project-tag">Website</span>
+                        <h3 class="project-title">SaaS Landing</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTRO SECTION -->
+    <section id="intro">
+        <div class="container">
+            <h2>We Build & Grow <br>Brands Digitally</h2>
+            <p>We are a creative digital agency focused on performance, content, and growth. We help businesses scale with smart strategies and design.</p>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="services">
+        <div class="container">
+            <h2 class="section-title">How We Help</h2>
+            <div class="services-grid">
+                <div class="service-item">
+                    <span class="service-icon">??</span>
+                    <h3>Social Media Management</h3>
+                    <p>Building communities and engagement every day.</p>
+                </div>
+                <div class="service-item">
+                    <span class="service-icon">??</span>
+                    <h3>Paid Ads (Meta + Google)</h3>
+                    <p>Direct response strategies that drive real ROI.</p>
+                </div>
+                <div class="service-item">
+                    <span class="service-icon">??</span>
+                    <h3>Content & Video Creation</h3>
+                    <p>Storytelling through high-quality visual assets.</p>
+                </div>
+                <div class="service-item">
+                    <span class="service-icon">??</span>
+                    <h3>Branding & Design</h3>
+                    <p>Defining your voice and visual language.</p>
+                </div>
+                <div class="service-item">
+                    <span class="service-icon">??</span>
+                    <h3>Websites & Landing Pages</h3>
+                    <p>Converting visitors into loyal customers.</p>
+                </div>
+                <div class="service-item">
+                    <span class="service-icon">??</span>
+                    <h3>Analytics & Optimization</h3>
+                    <p>Scaling based on hard data and insights.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+        <div class="container">
+            <div class="contact-flex">
+                <div class="contact-info">
+                    <h2>Let’s Work <br>Together</h2>
+                    <div class="phone-numbers">
+                        <a href="tel:+919213525165" class="phone-link">+91 92135 25165</a>
+                        <a href="tel:+919274436018" class="phone-link">+91 92744 36018</a>
+                    </div>
+                    <a href="https://wa.me/919213525165" class="whatsapp-btn">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.06 3.973L0 16l4.204-1.102a7.923 7.923 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+                        </svg>
+                        Message on WhatsApp
+                    </a>
+                </div>
+                <form id="contact-form" onsubmit="handleForm(event)">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea rows="5" placeholder="Tell us about your project..." required></textarea>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                    <p id="form-status" style="display:none; font-size: 0.8rem; color: #ad1457; text-align: center; margin-top: 10px;"></p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Digital Agency. Designed for performance & style.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple form handling (prevents page reload)
+        function handleForm(e) {
+            e.preventDefault();
+            const status = document.getElementById('form-status');
+            const btn = e.target.querySelector('button');
+            
+            btn.innerText = "Sending...";
+            btn.disabled = true;
+
+            // Mock submission delay
+            setTimeout(() => {
+                status.style.display = "block";
+                status.innerText = "Thank you! We will get back to you shortly.";
+                e.target.reset();
+                btn.innerText = "Message Sent!";
+            }, 1000);
+        }
+
+        // Optional: Smooth reveal on scroll for portfolio items
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateY(0)";
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.style.opacity = "0";
+            card.style.transform = "translateY(20px)";
+            card.style.transition = "all 0.6s ease-out";
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
